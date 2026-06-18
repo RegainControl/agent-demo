@@ -1,0 +1,23 @@
+spring:
+  ai:
+    vectorstore:
+      pgvector:
+        dimensions: 768
+    ollama:
+      base-url: http://192.168.196.129:11434
+      chat:
+        model: qwen3:0.6b
+        options:
+          #模型的温度。增加温度将使模型回答更具创造性
+          temperature: 0
+          #减少生成无意义内容的概率。较高的值（例如，100）将给出更多样化的答案，而较低的值（例如，10）将更加保守
+          top-k: 10
+          #与 top-k 一起使用。较高的值（例如，0.95）将导致更多样化的文本，而较低的值（例如，0.5）将生成更集中和保守的文本
+          top-p: 0.1
+      embedding:
+        model: nomic-embed-text:latest
+# knife4j的增强配置，不需要增强可以不配
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
